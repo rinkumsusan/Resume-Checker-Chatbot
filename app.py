@@ -12,7 +12,10 @@ def init_models():
     client = chromadb.PersistentClient(path="./my_ai_db")
     collection = client.get_or_create_collection(name="research_papers")
     embed_model = SentenceTransformer('all-MiniLM-L6-v2')
-    genai.configure(api_key="AIzaSyDKh2DUE00P1UOALxWHYIGW4MsJvmNoKHw")
+    # Replace your old hardcoded key with this:
+
+
+    genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
     llm = genai.GenerativeModel('gemini-2.5-flash-lite')
     return client, collection, embed_model, llm
 
