@@ -1,4 +1,5 @@
 streamlit
 chromadb>=0.4.0
+sentence-transformers
 pydantic>=2.0
 protobuf==4.25.3
