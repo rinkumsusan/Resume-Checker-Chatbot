@@ -1,3 +1,17 @@
+import chromadb
+
+# 1. Initialize the client (ensure you use a persistent path)
+client = chromadb.PersistentClient(path="./chroma_db")
+
+# 2. Use 'get_or_create_collection' instead of 'get_collection'
+collection = client.get_or_create_collection(name="resumes")
+
+# Now your upsert will work
+collection.upsert(
+    ids=["id1"],
+    documents=["resume content..."],
+    # ... rest of your code
+)
 import streamlit as st
 import chromadb
 from sentence_transformers import SentenceTransformer
